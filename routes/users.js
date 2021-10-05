@@ -12,4 +12,9 @@ let user1 = new Users(1,'Pasha')
 let user2 = new Users(2,'Igor')
 let users = [user1,user2]
 
+router.get('/')
+router.post('/create')
+router.put('/edit')
+router.delete('/delete')
+
 module.exports = router
