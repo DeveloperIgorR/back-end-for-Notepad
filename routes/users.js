@@ -13,6 +13,10 @@ let user2 = new Users(2,'Igor')
 let users = [user1,user2]
 
 router.get('/')
+router.get('/:id', (req, res) => {
+    let userById = users.find((user) => user.id == req.params.id)
+    res.send(userById) 
+})
 router.post('/create')
 router.put('/edit')
 router.delete('/delete')

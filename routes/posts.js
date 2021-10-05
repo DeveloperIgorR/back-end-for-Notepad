@@ -13,6 +13,10 @@ let post2 = new Posts(2,'hi middle!')
 let posts = [post1,post2]
 
 router.get('/')
+router.get('/:id', (req, res) => {
+    let postById = posts.find((post) => post.id == req.params.id)
+    res.send(postById) 
+})
 router.post('/create')
 router.put('/edit')
 router.delete('/delete')
