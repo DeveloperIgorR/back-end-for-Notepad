@@ -16,7 +16,7 @@ class UsersControllers{
     }
 
     getUsersById(id){
-        let userById = users.find((user) => user.id == id)
+        let userById = users.find(user => user.id == id)
         return userById
     }
 }
