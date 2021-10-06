@@ -20,4 +20,4 @@ class PostsControllers{
     }
 }
 
-module.exports = new PostsControllers
+module.exports = new PostsControllers()

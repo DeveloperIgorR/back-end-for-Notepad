@@ -1,17 +1,20 @@
-class Users{
-    constructor(id,name){
-        this.id = id
-        this.name = name        
-    }
-}
+const UsersServices = require("../services/objects.services")
 
-let user1 = new Users(1,'Pasha')
-let user2 = new Users(2,'Igor')
-let users = [user1,user2]
+// class Users{
+//     constructor(id,name){
+//         this.id = id
+//         this.name = name        
+//     }
+// }
+
+// let user1 = new Users(1,'Pasha')
+// let user2 = new Users(2,'Igor')
+// let users = [user1,user2]
 
 class UsersControllers{
     
-    getUsers(){
+    async getUsers(){
+        let users = await UsersServices.getUsers()
         return users
     }
 

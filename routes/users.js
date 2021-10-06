@@ -2,9 +2,9 @@ const express = require('express')
 const router = express.Router()
 const UsersControllers = require('../controllers/users.controllers')
 
-router.get('/', (req, res) => {
+router.get('/', async (req, res) => {
     try {
-        const users = UsersControllers.getUsers()
+        let users = await UsersControllers.getUsers()
         res.send(users)
     }
     catch (e) {

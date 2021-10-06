@@ -1,21 +1,27 @@
 const express = require('express')
 const router = express.Router()
+const PostsControllers = require('../controllers/posts.controllers')
 
-class Posts{
-    constructor(id,title){
-        this.id = id
-        this.title = title        
+router.get('/', (req, res) => {
+    try {
+        const posts = PostsControllers.getPosts()
+        res.send(posts)
     }
-}
+    catch (e) {
+        console.log(e)
+    }
 
-let post1 = new Posts(1,'hi proger!')
-let post2 = new Posts(2,'hi middle!')
-let posts = [post1,post2]
+})
 
-router.get('/')
 router.get('/:id', (req, res) => {
-    let postById = posts.find((post) => post.id == req.params.id)
-    res.send(postById) 
+    try {
+        const post = PostsControllers.getPostByID(req.params.id)
+        res.send(post)
+    }
+    catch (e) {
+        console.log(e)
+    }
+
 })
 router.post('/create')
 router.put('/edit')
