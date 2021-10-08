@@ -18,7 +18,7 @@ async function login(data) {
     }
 }
 
-router.get('/', login(), async (req, res) => {
+router.get('/', async (req, res) => {
     try {
         let users = await UsersControllers.getUsers()
         res.send(users)
