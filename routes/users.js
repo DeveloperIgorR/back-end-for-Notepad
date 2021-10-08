@@ -5,19 +5,6 @@ const jwt = require('jsonwebtoken')
 const UsersControllers = require('../controllers/users.controllers')
 const UsersServices = require('../services/objects.services')
 
-async function login(data) {
-    const {email, password} =  data
-    const user = await UsersServices.getOneUser(email)
-    if(user) {
-        const compareUser = await bcrypt.compare(password, user.password)
-        const {id} = user.dataValues
-        if(compareUser) {
-            const token = jwt.sign({id}, process.env.ACCESS_TOKEN_SECRET)
-            return token
-        }
-    }
-}
-
 router.get('/', async (req, res) => {
     try {
         let users = await UsersControllers.getUsers()
@@ -28,9 +15,9 @@ router.get('/', async (req, res) => {
     }
 
 })
-router.get('/:id', (req, res) => {
+router.get('/:email', (req, res) => {
     try {
-        const user = UsersControllers.getUsersById(req.params.id)
+        const user = UsersControllers.getOneUser(req.params.email)
         res.send(user)
     }
     catch (e) {
@@ -39,6 +26,17 @@ router.get('/:id', (req, res) => {
 
 })
 router.post('/create')
+
+router.post('/login', async (req, res) => {
+    try {
+        const resData = await UsersControllers.login(req.body)
+        res.json(resData)
+    }
+    catch (e) {
+        res.json({ message: e.message })
+    }
+})
+
 router.put('/edit')
 router.delete('/delete')
 
