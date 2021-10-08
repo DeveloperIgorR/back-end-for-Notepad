@@ -7,17 +7,14 @@ class Users{
     }
 }
 
-let user1 = new Users(1,'Pasha')
-let user2 = new Users(2,'Igor')
+let user1 = new Users(1,'Pasha','proger@com', 1234 )
+let user2 = new Users(2,'Igor', 'middle@com', 1234 )
 let users = [user1,user2]
 
 class UsersServices {
     static getUsers(){
         return new Promise((res, rej) => {
-            res(
-                {id:1, name:'Igor', email: 'proger@com', password: 1234},
-                {id:2, name:'Ivan', email: 'middle@com', password: 1234}
-                )
+            res(users)
         }) 
     } 
 
