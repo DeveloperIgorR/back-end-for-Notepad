@@ -15,9 +15,9 @@ router.get('/', async (req, res) => {
     }
 
 })
-router.get('/:email', (req, res) => {
+router.get('/:email',async (req, res) => {
     try {
-        const user = UsersControllers.getOneUser(req.params.email)
+        const user = await UsersControllers.getOneUser(req.params.email)
         res.send(user)
     }
     catch (e) {
