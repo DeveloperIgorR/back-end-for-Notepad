@@ -25,7 +25,6 @@ router.get('/:email',async (req, res) => {
     }
 
 })
-router.post('/create')
 
 router.post('/login', async (req, res) => {
     try {
@@ -37,7 +36,23 @@ router.post('/login', async (req, res) => {
     }
 })
 
-router.put('/edit')
-router.delete('/delete')
+router.put('/edit/:id',(req, res) => {
+    try {
+        console.log(req.params.id)
+        console.log(req.body)
+    } 
+    catch (e) {
+        console.log(e)
+    }
+})
+
+router.delete('/delete/:id',(req, res) => {
+    try {
+        console.log(req.body)
+    }
+    catch (e) {
+        console.log(e)
+    }
+})
 
 module.exports = router

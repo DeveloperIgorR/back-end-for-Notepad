@@ -2,7 +2,8 @@ const PostsServices = require("../services/posts.services")
 
 class PostsControllers{
     async getNewPosts(){
-        return await PostsServices.getPosts()
+        let posts = await PostsServices.getPosts()
+        return posts
     }
 
     getPostByID(id){
