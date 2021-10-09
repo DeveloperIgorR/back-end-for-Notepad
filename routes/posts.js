@@ -2,9 +2,9 @@ const express = require('express')
 const router = express.Router()
 const PostsControllers = require('../controllers/posts.controllers')
 
-router.get('/', (req, res) => {
+router.get('/', async (req, res) => {
     try {
-        const posts = PostsControllers.getPosts()
+        const posts = await PostsControllers.getNewPosts()
         res.send(posts)
     }
     catch (e) {

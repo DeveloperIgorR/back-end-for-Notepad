@@ -1,17 +1,8 @@
-class Posts{
-    constructor(id,title){
-        this.id = id
-        this.title = title        
-    }
-}
-
-let post1 = new Posts(1,'hi proger!')
-let post2 = new Posts(2,'hi middle!')
-let posts = [post1,post2] 
+const PostsServices = require("../services/posts.services")
 
 class PostsControllers{
-    getPosts(){
-        return posts
+    async getNewPosts(){
+        return await PostsServices.getPosts()
     }
 
     getPostByID(id){

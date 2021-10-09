@@ -23,14 +23,7 @@ class UsersServices {
             let userEmail = users.find(user => user.email == email)
             res(userEmail)
         })
-    }
-
-    getPosts() {
-        return new Promise((res, rej) => {
-            res([{ id: 1, title: 'Hi man' }, { id: 2, title: 'Hello proger' }])
-        })
-    }
-
+    }    
 }
 
 module.exports = UsersServices
