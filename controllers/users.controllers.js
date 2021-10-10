@@ -1,3 +1,6 @@
+const bcrypt = require('bcrypt')
+const jwt = require('jsonwebtoken')
+
 const UsersServices = require("../services/users.services")
 
 class UsersControllers{
@@ -16,7 +19,8 @@ class UsersControllers{
         const {email, password} =  data
         const user = await UsersServices.getUserByEmail(email)
         if(user) {
-            const compareUser = await bcrypt.compare(password, user.password)
+            const compareUser = await bcrypt.compare(password, String(user.password))
+            console.log(compareUser)
             const {id} = user.dataValues
             if(compareUser) {
                 const token = jwt.sign({id}, process.env.ACCESS_TOKEN_SECRET)
