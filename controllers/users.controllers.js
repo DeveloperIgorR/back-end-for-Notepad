@@ -1,6 +1,7 @@
 const bcrypt = require('bcrypt')
 const saltRounds = 10
 const jwt = require('jsonwebtoken')
+require('dotenv/config')
 
 const UsersServices = require("../services/users.services")
 
