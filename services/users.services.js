@@ -23,7 +23,15 @@ class UsersServices {
             let userEmail = users.find(user => user.email == email)
             res(userEmail)
         })
-    }    
+    } 
+    
+    static createUser({email, password, id, name}){
+        return new Promise((res,rej) => {
+            let user = {email, password, id, name}
+            res(user)
+        })
+    }
+
 }
 
 module.exports = UsersServices

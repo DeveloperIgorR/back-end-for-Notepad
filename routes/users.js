@@ -24,6 +24,16 @@ router.get('/:email',async (req, res) => {
 
 })
 
+router.post('/registration', async (req, res) => {
+    try {
+        const resData = await UsersControllers.registration(req.body)
+        res.json(resData)
+    }
+    catch (e) {
+        res.json({ message: e.message })
+    }
+})
+
 router.post('/login', async (req, res) => {
     try {
         const resData = await UsersControllers.login(req.body)
