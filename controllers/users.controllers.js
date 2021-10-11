@@ -39,7 +39,7 @@ class UsersControllers{
             console.log(compareUser)           
             const {id} = user.id            
             if(compareUser) {
-                const token = await jwt.sign(id, process.env.ACCESS_TOKEN_SECRET)
+                const token = await jwt.sign({id}, process.env.ACCESS_TOKEN_SECRET)
                  console.log(token)
                 return token
                
