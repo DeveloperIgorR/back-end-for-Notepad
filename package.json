@@ -4,7 +4,7 @@
   "description": "back-end for Notepad",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon index.js"
+    "dev": "nodemon run"
   },
   "repository": {
     "type": "git",
